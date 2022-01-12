@@ -19,8 +19,10 @@ ENV S2I_SCRIPTS_PATH=/usr/libexec/s2i \
     DISABLE_MIGRATE=1
 
 # RUN pip install --upgrade pip
-RUN pip install setuptools
+#RUN pip install setuptools
 
 RUN /tmp/scripts/assemble
+
+CMD [ "pip install --upgrade pip" ]
 
 CMD [ "/tmp/scripts/run" ]
