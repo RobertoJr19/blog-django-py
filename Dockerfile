@@ -2,9 +2,6 @@ FROM centos/python-35-centos7:latest
 
 USER root
 
-# RUN pip install --upgrade pip
-RUN pip install setuptools
-
 COPY . /tmp/src
 
 RUN mv /tmp/src/.s2i/bin /tmp/scripts
@@ -20,6 +17,9 @@ ENV S2I_SCRIPTS_PATH=/usr/libexec/s2i \
     S2I_BASH_ENV=/opt/app-root/etc/scl_enable \
     DISABLE_COLLECTSTATIC=1 \
     DISABLE_MIGRATE=1
+
+# RUN pip install --upgrade pip
+RUN pip install setuptools
 
 RUN /tmp/scripts/assemble
 
