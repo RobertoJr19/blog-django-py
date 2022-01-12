@@ -2,7 +2,8 @@ FROM centos/python-35-centos7:latest
 
 USER root
 
-RUN pip install --upgrade pip
+# RUN pip install --upgrade pip
+RUN pip install setuptools
 
 COPY . /tmp/src
 
